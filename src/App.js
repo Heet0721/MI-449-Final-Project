@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import "./index.css";
 import MealList from "./MealList";
 import { createClient } from '@supabase/supabase-js';
-import { Button } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 
