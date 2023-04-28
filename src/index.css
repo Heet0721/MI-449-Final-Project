@@ -1,13 +1,226 @@
-body {
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  background-image: url("https://images.unsplash.com/photo-1494859802809-d069c3b71a8a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NjJ8fGZvb2R8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  font-family: "Roboto", sans-serif;
+
 }
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom right,
+    rgba(255, 255, 255, 0.3),
+    rgba(255, 255, 255, 0.1)
+  );
+}
+
+.App {
+  position: relative;
+  z-index: 1;
+}
+
+:root {
+  --background-color: white;
+  --text-color: hsl(0, 0%, 0%);
+}
+
+.title {
+  display: grid;
+  place-content: center;
+  background-color: var(--background-color);
+  min-height: 15vh;
+  font-family: "Oswald", sans-serif;
+  font-size: clamp(1.2rem, .8rem + 14vw, 11rem);
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--text-color);
+}
+
+.title > div {
+  grid-area: 1/1/-1/-1;
+}
+.top {
+  clip-path: polygon(0% 0%, 100% 0%, 100% 48%, 0% 58%);
+}
+.bottom {
+  clip-path: polygon(0% 60%, 100% 50%, 100% 100%, 0% 100%);
+  color: transparent;
+  background: -webkit-linear-gradient(177deg, black 53%, var(--text-color) 65%);
+  background: linear-gradient(177deg, black 53%, var(--text-color) 65%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  transform: translateX(-0.02em);
+}
+
+
+.App {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+section {
+  margin: 2rem 0 1rem 0;
+}
+
+.controls {
+  display: inline-block;
+  align-items: center;
+  flex-direction: column;
+
+}
+
+p {
+  text-align: center;
+  font-size: 18px;
+}
+
+input {
+  width: 100%;
+  text-align: center;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  padding: 10px 35px;
+}
+
+#button1 , #button2 {
+  display: inline-block;
+  width: 122px;
+  height: 48px;
+  padding: 10px, 15px, 10px, 15px;
+  background-color: #5E5BFF;
+  color: #f3f3f3;
+  border-radius: 5px;
+  font-family: "Roboto", sans-serif;
+  font-size: 1.3rem;
+  margin-left: 50px;
+  margin-top: 20px;
+  margin-right: 50px;
+}
+
+#button1:hover , #button2:hover {
+  background-color: #6c13d1;
+  color: white;
+  cursor: pointer;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+/* h3 {
+  text-align: center;
+  color: #216beb;
+} */
+
+.nutrients ul {
+  display:block;
+  font-size: large;
+  text-align: center;
+
+}
+
+.meals {
+  display: flex;
+}
+
+img {
+  width: 350px;
+  height: 200px;
+  margin-bottom: 1rem;
+}
+
+.color-changing {
+  transition: background-color 0.5s ease-in-out;
+}
+
+
+article {
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  margin: 0 4rem;
+  border-radius: 20px;
+  box-shadow: 0 6px 10px 4px rgba(77, 77, 77, 0.15);
+  background-color: white;
+}
+
+
+ul {
+  list-style: none;
+}
+
+a {
+  width: fit-content;
+  padding: 0.5rem 1rem;
+}
+
+a:hover {
+  background-color: #c9c9c9;
+  color: aqua;
+  cursor: pointer;
+}
+
+.spotlight {
+  position: relative;
+}
+
+.spotlight::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, rgba(255, 0, 0, 0) 0%, rgb(247, 103, 103) 25%, rgb(83, 83, 244) 75%, rgba(0, 0, 255, 0) 100%);
+  z-index: 1;
+  animation: spotlight 4.5s infinite;
+  transform: translateX(50%);
+}
+
+
+@keyframes spotlight {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+
+
+@media only screen and (max-width: 1024px) {
+  .meals {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .nutrients ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+}
+
