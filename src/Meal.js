@@ -16,20 +16,15 @@ export default function Meal({ meal }) {
       .catch(() => {
         console.log("error");
       });
-  }, [meal.id]);
 
-  const colors = ["#D9D9D9", "#0396FF", "#32CCBC", "#3677FF", "#A64DB6", "#9452A5", "#58CFFB","#F067B4"];
-
-  useEffect(() => {
     const bgInterval = setInterval(() => {
+      const colors = ["#D9D9D9", "#0396FF", "#32CCBC", "#3677FF", "#A64DB6", "#9452A5", "#58CFFB","#F067B4"];
       const randomColor = colors[Math.floor(Math.random() * colors.length)];
       setBgColor(randomColor);
     }, 5000);
 
     return () => clearInterval(bgInterval);
-  }, []);
-  
-  
+  }, [meal.id]);
 
   return (
     <article style={{ backgroundColor: bgColor }} className="bg-white rounded-md shadow-md overflow-hidden color-changing">
@@ -44,8 +39,6 @@ export default function Meal({ meal }) {
       <div className="px-6 pb-6 flex justify-center">
         <a href={meal.sourceUrl} className="bg-black hover:bg-gray-700 text-white font-bold underline py-2 px-4 rounded">Go to Recipe</a>
       </div>
-
-
     </article>
   );
 }
